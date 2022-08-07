@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using VShop.ProductApi.Context;
 
+#region Builder
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -14,6 +15,11 @@ var mySqlConnection = builder.Configuration.GetConnectionString("DefaultConnecti
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(mySqlConnection, ServerVersion.AutoDetect(mySqlConnection)));
+
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+#endregion
+
+#region app
 
 var app = builder.Build();
 
@@ -30,4 +36,5 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+app.Run(); 
+#endregion
