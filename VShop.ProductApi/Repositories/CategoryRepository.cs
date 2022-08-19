@@ -25,7 +25,7 @@ namespace VShop.ProductApi.Repositories
 
         public async Task<Category> GetById(int id)
         {
-            return await _context.Categories.Where(c=>c.CategoryId == id).FirstOrDefaultAsync();
+            return await _context.Categories.Where(c => c.CategoryId == id).FirstOrDefaultAsync();
         }       
 
         public async Task<Category> Create(Category category)

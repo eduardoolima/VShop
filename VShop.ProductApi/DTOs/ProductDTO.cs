@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using VShop.ProductApi.Models;
+using System.Text.Json.Serialization;
 
 namespace VShop.ProductApi.DTOs
 {
@@ -26,6 +27,9 @@ namespace VShop.ProductApi.DTOs
 
         public string? ImageURL { get; set; }
 
+        public string? CategoryName { get; set; }
+
+        [JsonIgnore]
         public Category? Category { get; set; }
         public int CategoryId { get; set; }
     }
